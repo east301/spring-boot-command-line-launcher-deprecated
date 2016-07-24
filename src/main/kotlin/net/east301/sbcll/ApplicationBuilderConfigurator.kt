@@ -15,6 +15,7 @@
 
 package net.east301.sbcll
 
+import net.sourceforge.argparse4j.inf.Namespace
 import org.springframework.boot.builder.SpringApplicationBuilder
 
 
@@ -29,7 +30,8 @@ interface ApplicationBuilderConfigurator {
      * Configures application context builder.
      *
      * @param builder   application context builder
+     * @param args      command line arguments
      */
-    fun configureApplicationBuilder(builder: SpringApplicationBuilder)
+    fun configureApplicationBuilder(builder: SpringApplicationBuilder, args: Namespace)
 
 }

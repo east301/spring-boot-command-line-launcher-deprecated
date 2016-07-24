@@ -76,9 +76,9 @@ class Launcher {
 
         val builder = SpringApplicationBuilder()
         ServiceLoader.load(ApplicationEnvironment::class.java).forEach {
-            it.configureApplicationBuilder(builder)
+            it.configureApplicationBuilder(builder, parsedArgs)
         }
-        command.configureApplicationBuilder(builder)
+        command.configureApplicationBuilder(builder, parsedArgs)
 
         //
         val applicationContext = builder.run()
