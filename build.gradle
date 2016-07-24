@@ -1,0 +1,39 @@
+///
+/// Build script for spring-boot-command-line-launcher project.
+///
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.0.3'
+    }
+}
+
+
+// ================================================================================
+// Kotlin
+// ================================================================================
+
+apply plugin: 'kotlin'
+
+group = 'net.east301.sbcll'
+version = '0.0.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile     'org.springframework.boot:spring-boot-starter:1.3.6.RELEASE'
+    compile     'org.jetbrains.kotlin:kotlin-stdlib:1.0.3'
+    compile     'net.sourceforge.argparse4j:argparse4j:0.7.0'
+}
+
+
+// ================================================================================
+// IDE support
+// ================================================================================
+
+apply plugin: 'idea'
