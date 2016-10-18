@@ -28,7 +28,7 @@ import java.util.ServiceLoader
  *
  * @author Shu Tadaka
  */
-class Launcher {
+open class Launcher {
 
     companion object {
 
