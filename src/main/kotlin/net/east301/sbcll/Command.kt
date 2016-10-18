@@ -26,7 +26,7 @@ import org.springframework.context.ApplicationContext
  *
  * @author Shu Tadaka
  */
-interface Command : ApplicationBuilderConfigurator {
+interface Command : ApplicationBuilderConfigurator, ApplicationPropertyBuilder {
 
     /**
      * Configures command line parser.

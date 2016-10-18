@@ -15,15 +15,21 @@
 
 package net.east301.sbcll
 
+import net.sourceforge.argparse4j.inf.Namespace
 
 /**
- * Configures common application environment.
- * Instances of this class are loaded through [java.util.ServiceLoader].
+ * Builds Spring Application property from parsed command line arguments.
  *
  * @author Shu Tadaka
  */
-interface ApplicationEnvironment : ApplicationBuilderConfigurator, ApplicationPropertyBuilder {
+interface ApplicationPropertyBuilder {
 
-    // empty
+    /**
+     * Generates application properties from parsed command line arguments.
+     *
+     * @param args  command line arguments
+     * @return application properties
+     */
+    fun getApplicationProperties(args: Namespace): Map<String, Any>
 
 }

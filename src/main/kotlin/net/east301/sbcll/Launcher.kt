@@ -75,12 +75,19 @@ open class Launcher {
         val command = commands[parsedArgs.getString("_command")] ?: throw RuntimeException("Invalid state")
 
         val builder = SpringApplicationBuilder()
+        val properties = HashMap<String, Any>()
+
         ServiceLoader.load(ApplicationEnvironment::class.java).forEach {
             it.configureApplicationBuilder(builder, parsedArgs)
+            properties.putAll(it.getApplicationProperties(parsedArgs))
         }
+
         command.configureApplicationBuilder(builder, parsedArgs)
+        properties.putAll(command.getApplicationProperties(parsedArgs))
 
         //
+        ApplicationPropertySetter.registerProperties(properties)
+
         val applicationContext = builder.run()
         command.run(applicationContext, parsedArgs)
     }
